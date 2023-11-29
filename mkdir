@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "enter directory name"
+read dir
+if [ -f $dir ]
+then
+echo "directory exists"
+else
+`mkdir $dir`
+echo "directory created"
+fi

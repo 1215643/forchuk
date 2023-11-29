@@ -1,0 +1,13 @@
+#!/bin/bash
+logfile="/home/ec2-user/LOGFILE"
+
+# Get the current date and time in the required format
+last180min=$(date -d "180 minutes ago" +"%Y-%m-%d %H:%M:%S")
+
+echo "fetching logs from $last180min to now"
+
+# Use journalctl with the correct timestamp format
+journalctl --since "$last180min" >> "$logfile"
+
+echo "logs are saved to $logfile"
+
